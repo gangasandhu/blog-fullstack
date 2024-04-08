@@ -84,15 +84,34 @@
                 }
                 //console.log(log)
                 util.insertOne(collection, log)
-                
+
             })
             .catch(err => console.log(`\t|Could not connect to MongoDB Server\n\t|${err}`))
             .finally(() => {
                 //client.close()
                 //console.log('Disconnected')
             })
-            next()
+        next()
     }
+
+    function checkAuthenticated(req, res, next) {
+        if (req.isAuthenticated()) {
+            console.log("user is authenticated")
+            return next()
+        }
+        console.log("user not auhtenticated")
+        res.redirect('/')
+    }
+
+    function checkNotAuthenticated(req, res, next) {
+        if (req.isAuthenticated()) {
+            console.log("user is authenticated")
+            return res.redirect('/')
+        }
+        console.log("user is  not authenticated")
+        next()
+    }
+
     const util = {
         url: 'localhost',
         username: 'webuser',
@@ -107,6 +126,8 @@
         insertMany: insertMany,
         getMongoClient: getMongoClient,
         logRequest: logRequest,
+        checkAuthenticated: checkAuthenticated,
+        checkNotAuthenticated: checkNotAuthenticated,
     }
     const moduleExport = util
     if (typeof __dirname != 'undefined')

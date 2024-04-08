@@ -24,7 +24,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -40,20 +40,20 @@
                     <hr class="dropdown-divider" />
                   </li>
                   <li>
-                    <a class="dropdown-item" href="search,html">Search Posts</a>
+                    <a class="dropdown-item" href="search.html">Search Posts</a>
                   </li>
                  
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="about.html">About Us</a>
+                <a class="nav-link active" aria-current="page" href="/about">About Us</a>
               </li>
             </ul>
             
-              <div class="btn-group" role="group" aria-label="Registration and Login"> <a href="register.html" class="btn btn-warning" >
+              <div class="btn-group" role="group" aria-label="Registration and Login"> <a href="/register" class="btn btn-warning" >
                 Register
               </a>
-              <a href="login.html" class="btn btn-primary" >
+              <a href="/login" class="btn btn-primary" >
                 Log in
               </a></div>
               
