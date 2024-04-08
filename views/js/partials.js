@@ -16,7 +16,7 @@
         let navbar = `<nav class="navbar navbar-expand-lg navbar-primary ">
         <div class="container-fluid" role="banner">
           <img src="img/question.png" class="img-responsive rrounded" alt="Bootstrap Logo" width="50" />
-          <a class="navbar-brand" href="#">Langara Forum</a>
+          <a class="navbar-brand" href="#">Blog</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,15 +29,12 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  Member
+                  Posts
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
       
                   <li>
-                    <a class="dropdown-item" href="posts.html">Posts</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="filter.html">Filter Posts</a>
+                    <a class="dropdown-item" href="posts.html">Your Posts</a>
                   </li>
                   <li>
                     <hr class="dropdown-divider" />
