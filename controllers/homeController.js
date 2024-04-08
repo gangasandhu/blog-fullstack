@@ -6,12 +6,9 @@ const homeController = express.Router()
 
 
 function checkAuthenticated(req, res, next) {
-    console.log("checking athentication")
     if (req.isAuthenticated()) {
-        console.log("user is authenticated")
         return next()
     }
-    console.log("user not auhtenticated")
     res.redirect('/login')
 }
 
@@ -20,9 +17,16 @@ function checkAuthenticated(req, res, next) {
 
 
 
-homeController.get('/', checkAuthenticated, (req, res) => {
-    res.sendFile('posts.html', {root: config.ROOT})
+homeController.get('/', util.logRequest, checkAuthenticated, (req, res) => {
+    res.sendFile('index.html', {root: config.ROOT})
 })
+
+
+homeController.get('/home', util.logRequest, checkAuthenticated, (req, res) => {
+    res.sendFile('index.html', {root: config.ROOT})
+})
+
+
 
 homeController.get('/about', checkAuthenticated, (req, res) => {
     res.sendFile('about.html', { root: config.ROOT })

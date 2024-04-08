@@ -9,7 +9,7 @@ const passport = require('passport')
 const initializePassport = require('../server/config/passport-config')
 
 initializePassport(
-    passport, 
+    passport,
     username => users.find(user => user.username === username),
     id => users.find(user => user.id === id)
 )
@@ -17,29 +17,34 @@ initializePassport(
 const users = []
 
 
-// function checkNotAuthenticated(req, res, next) {
-//     if (req.isAuthenticated()) {
-//         console.log("user is authenticated")
-//         res.redirect('/')
-//     }
-//     console.log("user is  not authenticated")
-//     next()
-// }
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        res.redirect('/')
+    }
+    return next()
+}
+
+// userController.use('/login', checkNotAuthenticated)
+// userController.use('/register', checkNotAuthenticated)
 
 
-
-userController.get('/register', util.logRequest,  (req, res) => {
-    res.sendFile('register.html', {root: config.ROOT})
+userController.get('/register', util.logRequest, checkNotAuthenticated, (req, res) => {
+    res.sendFile('register.html', { root: config.ROOT })
 })
-userController.get('/login', util.logRequest, (req, res) => {
-    res.sendFile('login.html', {root: config.ROOT})
+userController.get('/login', util.logRequest, checkNotAuthenticated, (req, res) => {
+    res.sendFile('login.html', { root: config.ROOT })
 })
 
 userController.post('/login', util.logRequest, passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: true
-  }))
+}))
+
+userController.get('/logout', (req, res) => {
+    req.logout(() => {}); // Clear the user's session
+    res.redirect('/login'); // Redirect to the login page after logout
+});
 
 userController.post('/register', util.logRequest, async (req, res) => {
     console.log('post to register')
