@@ -50,12 +50,12 @@
               </li>
             </ul>
             
-              <div class="btn-group" role="group" aria-label="Registration and Login"> <button class="btn btn-warning" >
+              <div class="btn-group" role="group" aria-label="Registration and Login"> <a href="register.html" class="btn btn-warning" >
                 Register
-              </button>
-              <button class="btn btn-primary" >
+              </a>
+              <a href="login.html" class="btn btn-primary" >
                 Log in
-              </button></div>
+              </a></div>
               
             
           </div>
